@@ -1,3 +1,21 @@
+## Install AWS Metrics
+
+Install metric's server
+```bash
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+```
+
+Check installation
+```bash
+kubectl get deployment metrics-server -n kube-system
+```
+
+Show metrics
+```bash
+kubectl top nodes
+kubectl top pods
+```
+
 ## Install prometheus
 
 ### EKS
