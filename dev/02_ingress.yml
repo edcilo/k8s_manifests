@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata: 
+  name: ms-ingress
+  namespace: dev
+  annotations:
+    kubernetes.io/ingress.class: alb
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    alb.ingress.kubernetes.io/load-balancer-name: edc-v2-ingress-develop
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    # alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
+    # alb.ingress.kubernetes.io/ssl-redirect: '443'
+spec:
+  rules:
+    - host: nginx.edcilo.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ms-nginx
+                port:
+                  number: 80
+    # - host: apidev.edcilo.com
+    #   http:
+    #     paths:
+    #       - path: /api/v1/users
+    #         pathType: Prefix
+    #         backend:
+    #           service:
+    #             name: ms-users
+    #             port: 
+    #               number: 80

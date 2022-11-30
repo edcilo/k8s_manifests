@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-nginx
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-nginx
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: ms-nginx
+    spec:
+      containers:
+      - name: ms-nginx
+        image: nginx:1.23.2-alpine
+        imagePullPolicy: Always
+        ports:
+        - name: nginx
+          containerPort: 80
+        resources:
+          requests:
+            memory: "10Mi"
+            cpu: "10m"
+          limits:
+            memory: "20Mi"
+            cpu: "20m"
