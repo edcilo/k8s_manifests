@@ -8,6 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/enable-cors: "true"
     alb.ingress.kubernetes.io/load-balancer-name: edc-v2-ingress-develop
     alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: "600"
     # alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
     # alb.ingress.kubernetes.io/ssl-redirect: '443'
 spec:
