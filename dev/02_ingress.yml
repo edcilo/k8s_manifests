@@ -1,3 +1,5 @@
+# https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/ingress/annotations/#healthcheck-protocol
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata: 
@@ -9,6 +11,7 @@ metadata:
     alb.ingress.kubernetes.io/load-balancer-name: edc-v2-ingress-develop
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/healthcheck-interval-seconds: "600"
+    # alb.ingress.kubernetes.io/healthcheck-protocol: HTTP # HTTPS
     # alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
     # alb.ingress.kubernetes.io/ssl-redirect: '443'
 spec:
