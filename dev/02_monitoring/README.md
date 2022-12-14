@@ -47,6 +47,8 @@ helm delete prometheus -n monitoring
 ## Install fluent bit
 [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-logs-FluentBit.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-logs-FluentBit.html)
 
+The clust must to have the `CloudWatchLogsFullAccess` permission.
+
 Create namespace amazon-cloudwatch
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/cloudwatch-namespace.yaml
