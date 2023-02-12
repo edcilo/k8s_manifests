@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: dev
+  name: mysql-configmap
+  labels: 
+    app: mysql
+data:
+  MYSQL_DATABASE: "admin"
+  MYSQL_USER: "admin"
+  MYSQL_ROOT_PASSWORD: "secret"
+  MYSQL_PASSWORD: "secret"
+  entrypoint.sql: |-
+    CREATE DATABASE IF NOT EXISTS `fastapi`;
+    GRANT ALL ON `fastapi`.* TO 'admin'@'%';
+    CREATE DATABASE IF NOT EXISTS `foo`;
+    GRANT ALL ON `foo`.* TO 'admin'@'%';
+    CREATE DATABASE IF NOT EXISTS `bar`;
+    GRANT ALL ON `bar`.* TO 'admin'@'%';
