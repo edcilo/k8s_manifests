@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: dev
+  name: postgres-configmap
+  labels:
+    app: postgres
+data:
+  POSTGRES_DB: postgres
+  POSTGRES_USER: admin
+  entrypoint.sql: |-
+    CREATE DATABASE fastapi;
+    CREATE DATABASE foo;
+    CREATE DATABASE bar;
